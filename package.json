@@ -1,0 +1,28 @@
+{
+  "name": "symlinked",
+  "version": "0.0.0",
+  "description": "Node utility to list packages that are npm linked",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanve/symlinked.git"
+  },
+  "keywords": [
+    "npm-link",
+    "symlinks",
+    "symlink",
+    "paths",
+    "path",
+    "server",
+    "resolve"
+  ],
+  "author": "Ryan Van Etten",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryanve/symlinked/issues"
+  },
+  "homepage": "https://github.com/ryanve/symlinked#readme"
+}
