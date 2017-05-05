@@ -4,7 +4,11 @@
   "description": "Node utility to list packages that are npm linked",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js"
+    "demo": "node demo.js",
+    "lint": "eslint . --ext .js",
+    "pretest": "npm run lint",
+    "test": "node test.js",
+    "preversion": "npm test"
   },
   "repository": {
     "type": "git",
@@ -24,5 +28,9 @@
   "bugs": {
     "url": "https://github.com/ryanve/symlinked/issues"
   },
-  "homepage": "https://github.com/ryanve/symlinked#readme"
+  "homepage": "https://github.com/ryanve/symlinked#readme",
+  "devDependencies": {
+    "eol": "^0.9.0",
+    "eslint": "^3.19.0"
+  }
 }
