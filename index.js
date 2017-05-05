@@ -40,27 +40,28 @@ function links(dir) {
 
 function is(p) {
   if (p instanceof Found) return p.hasOwnProperty("link")
+  if (!fs.existsSync(p)) throw new Error("Path must exist in order to test if it is symlinked. Path " + p + " does not exist. You may need to first run: npm install")
   return fs.lstatSync(p).isSymbolicLink()
 }
 
-// function deps(dir) {
-//   dir = dir || "."
-//   var pkg = JSON.parse(fs.readFileSync(path.resolve(dir, "package.json")))
-//   return [].concat.apply([], [
-//     "dependencies",
-//     "devDependencies",
-//     "optionalDependencies",
-//     "peerDependencies"
-//   ].map(function(type) {
-//     if (!pkg[type]) return []
-//     return Object.keys(pkg[type]).filter(function(dep) {
-//       return is(path.join(node_modules, dep))
-//     })
-//   }))
-// }
+function deps(dir) {
+  dir = dir || "."
+  var pkg = JSON.parse(fs.readFileSync(path.resolve(dir, "package.json")))
+  return [].concat.apply([], [
+    "dependencies",
+    "devDependencies",
+    "optionalDependencies",
+    "peerDependencies"
+  ].map(function(type) {
+    if (!pkg[type]) return []
+    return Object.keys(pkg[type]).filter(function(dep) {
+      return is(path.join(node_modules, dep))
+    })
+  }))
+}
 
 module.exports = {
-  // deps: deps,
+  deps: deps,
   links: links,
   names: names,
   read: read,
