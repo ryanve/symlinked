@@ -28,6 +28,8 @@ var symlinked = require("symlinked")
 
 ## Examples
 
+### Ran in package directory with `said` dependency sublinked
+
 ```js
 symlinked.names()
 // [ 'said' ]
