@@ -31,6 +31,7 @@
   "homepage": "https://github.com/ryanve/symlinked#readme",
   "devDependencies": {
     "eslint": "^3.19.0",
+    "is-array-of": "^1.0.4",
     "said": "^0.1.0"
   }
 }
