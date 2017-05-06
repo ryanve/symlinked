@@ -10,3 +10,5 @@ ok(".names return type", Array.isArray(symlinked.names()))
 ok(".paths return type", Array.isArray(symlinked.paths()))
 ok(".links return type", Array.isArray(symlinked.links()))
 ok(".is return type", typeof symlinked.is(".") == "boolean")
+
+console.log("All tests passed =)")
