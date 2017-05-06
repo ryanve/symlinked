@@ -13,6 +13,7 @@ function search(dir) {
     var relative = path.join(dir, name)
     var found = new Found
     found.name = name
+    found.path = path.resolve(relative)
     if (is(relative)) found.link = read(relative)
     return found
   })
@@ -34,14 +35,17 @@ function names(dir) {
   return search(modules(dir)).filter(is).map(pluck, "name")
 }
 
+function paths(dir) {
+  return search(modules(dir)).filter(is).map(pluck, "path")
+}
+
 function links(dir) {
   return search(modules(dir)).filter(is).map(pluck, "link")
 }
 
 function is(p) {
   if (p instanceof Found) return p.hasOwnProperty("link")
-  if (!fs.existsSync(p)) throw new Error("Path must exist in order to test if it is symlinked. Path " + p + " does not exist. You may need to first run: npm install")
-  return fs.lstatSync(p).isSymbolicLink()
+  return fs.existsSync(p) && fs.lstatSync(p).isSymbolicLink()
 }
 
 function deps(dir) {
@@ -64,6 +68,7 @@ module.exports = {
   deps: deps,
   links: links,
   names: names,
+  paths: paths,
   read: read,
   is: is,
   search: search

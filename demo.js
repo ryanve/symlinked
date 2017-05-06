@@ -3,8 +3,26 @@ var path = require("path")
 var cp = require("child_process")
 var root = String(cp.execSync("npm root -g")).trim()
 
-console.log(root, "is root")
-console.log(path.resolve(root), "is root resolved")
-console.log("symlinked.names()", symlinked.names())
-console.log("symlinked.links()", symlinked.links())
-console.log("symlinked.deps()", symlinked.deps())
+console.log("DIR")
+console.log(path.resolve("."))
+console.log()
+
+console.log("ROOT")
+console.log(root)
+console.log()
+
+console.log("NAMES")
+console.log(symlinked.names())
+console.log()
+
+console.log("PATHS")
+console.log(symlinked.paths())
+console.log()
+
+console.log("LINKS")
+console.log(symlinked.links())
+console.log()
+
+console.log("DEPS")
+console.log(symlinked.deps())
+console.log()

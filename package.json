@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/ryanve/symlinked#readme",
   "devDependencies": {
-    "eol": "^0.9.0",
-    "eslint": "^3.19.0"
+    "eslint": "^3.19.0",
+    "said": "^0.1.0"
   }
 }

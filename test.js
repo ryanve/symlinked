@@ -5,5 +5,8 @@ function ok(message, test) {
   else throw new Error("Fail: " + message)
 }
 
-ok(".names return type", Array.isArray(symlinked.names(".")))
-ok(".links return type", Array.isArray(symlinked.links(".")))
+ok(".search return type", Array.isArray(symlinked.search()))
+ok(".names return type", Array.isArray(symlinked.names()))
+ok(".paths return type", Array.isArray(symlinked.paths()))
+ok(".links return type", Array.isArray(symlinked.links()))
+ok(".is return type", typeof symlinked.is(".") == "boolean")
