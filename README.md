@@ -1,16 +1,49 @@
 # symlinked
 
 
+## `npm`
 ```
 npm install symlinked
 ```
+
+## `yarn`
+```
+yarn add symlinked
+```
+
+### `require`
 
 ```js
 var symlinked = require("symlinked")
 ```
 
+## Methods
+
 - `symlinked.names(dir: ".")` get array of linked module names
-- `symlinked.links(dir: ".")` get array of linked modules paths
-- `symlinked.deps(dir: ".")` get array of linked modules names that are also listed as dependencies
-- `symlinked.is(path)` test if path is linked
+- `symlinked.paths(dir: ".")` get array of linked module paths
+- `symlinked.links(dir: ".")` get array of linked module links
+- `symlinked.deps(dir: ".")` get array of linked modules names that are also dependencies
+- `symlinked.is(path)` test if path is linked. Will
 - `symlinked.read(path)` read link
+
+## Examples
+
+```js
+symlinked.names()
+// [ 'said' ]
+```
+
+```js
+symlinked.paths()
+// [ '/Users/jdoe/symlinked/node_modules/said' ]
+```
+
+```js
+symlinked.links()
+// [ '/Users/said' ]
+```
+
+```js
+symlinked.deps()
+// [ 'said' ]
+```
