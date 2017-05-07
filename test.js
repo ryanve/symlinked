@@ -13,7 +13,6 @@ ok(".names return type", isStrings(symlinked.names()))
 ok(".paths return type", isStrings(symlinked.paths()))
 ok(".roots return type", isStrings(symlinked.roots()))
 ok(".links return type", isStrings(symlinked.links()))
-ok(".deps return type", isStrings(symlinked.links()))
 ok(".is return type", typeof symlinked.is(".") == "boolean")
 
 console.log("All tests passed =)")

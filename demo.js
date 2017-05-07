@@ -26,10 +26,6 @@ console.log("LINKS")
 console.log(symlinked.links())
 console.log()
 
-console.log("DEPS")
-console.log(symlinked.deps())
-console.log()
-
 console.log("MAP")
 console.log(symlinked.paths().map(symlinked.read))
 console.log()

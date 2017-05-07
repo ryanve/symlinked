@@ -21,7 +21,6 @@ var symlinked = require("symlinked")
 - `symlinked.paths(dir: ".")` get array of linked package paths
 - `symlinked.roots(dir: ".")` get array of linked package roots
 - `symlinked.links(dir: ".")` get array of linked package links
-- `symlinked.deps(dir: ".")` get array of linked modules names that are also dependencies
 - `symlinked.is(path)` test if path exists and is linked
 - `symlinked.read(path)` read link
 
@@ -45,11 +44,6 @@ symlinked.roots()
 ```js
 symlinked.links()
 // [ '/Users/said' ]
-```
-
-```js
-symlinked.deps()
-// [ 'said' ]
 ```
 
 ### [Webpack `resolve.modules`](https://webpack.js.org/configuration/resolve/#resolve-modules) configuration to resolve dependencies of linked dependencies
