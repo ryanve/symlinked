@@ -24,7 +24,7 @@ var symlinked = require("symlinked")
 - `symlinked.roots(dir: ".")` get array of linked package roots
 - `symlinked.links(dir: ".")` get array of linked package links
 - `symlinked.deps(dir: ".")` get array of linked modules names that are also dependencies
-- `symlinked.is(path)` test if path is linked. Will
+- `symlinked.is(path)` test if path exists and is linked
 - `symlinked.read(path)` read link
 
 ## Examples
