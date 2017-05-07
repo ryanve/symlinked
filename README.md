@@ -1,24 +1,21 @@
 # symlinked
 
-
-## `npm`
+## Setup
+### Install via `npm` or `yarn`
 ```
 npm install symlinked
 ```
 
-## `yarn`
 ```
 yarn add symlinked
 ```
 
-### `require`
-
+## `require`
 ```js
 var symlinked = require("symlinked")
 ```
 
 ## Methods
-
 - `symlinked.names(dir: ".")` get array of linked package names
 - `symlinked.paths(dir: ".")` get array of linked package paths
 - `symlinked.roots(dir: ".")` get array of linked package roots
@@ -28,9 +25,7 @@ var symlinked = require("symlinked")
 - `symlinked.read(path)` read link
 
 ## Examples
-
 ### Ran in package directory with `said` dependency sublinked
-
 ```js
 symlinked.names()
 // [ 'said' ]
@@ -54,4 +49,13 @@ symlinked.links()
 ```js
 symlinked.deps()
 // [ 'said' ]
+```
+
+### [Webpack `resolve.modules`](https://webpack.js.org/configuration/resolve/#resolve-modules) configuration to resolve dependencies of linked dependencies
+```js
+module.exports = {
+  resolve: {
+    modules: ["node_modules"].concat(symlinked.roots())
+  }
+}
 ```
