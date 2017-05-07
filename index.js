@@ -27,20 +27,24 @@ function pluck(found) {
   return found[this]
 }
 
-function modules(dir) {
+function root(dir) {
   return path.join(dir || ".", node_modules)
 }
 
+function roots(dir) {
+  return paths(dir).map(root)
+}
+
 function names(dir) {
-  return search(modules(dir)).filter(is).map(pluck, "name")
+  return search(root(dir)).filter(is).map(pluck, "name")
 }
 
 function paths(dir) {
-  return search(modules(dir)).filter(is).map(pluck, "path")
+  return search(root(dir)).filter(is).map(pluck, "path")
 }
 
 function links(dir) {
-  return search(modules(dir)).filter(is).map(pluck, "link")
+  return search(root(dir)).filter(is).map(pluck, "link")
 }
 
 function is(p) {
@@ -69,6 +73,7 @@ module.exports = {
   links: links,
   names: names,
   paths: paths,
+  roots: roots,
   read: read,
   is: is,
   search: search
