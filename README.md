@@ -25,7 +25,7 @@ var symlinked = require("symlinked")
 - `symlinked.read(path)` read link
 
 ## Examples
-### Ran in package directory with `said` dependency sublinked
+### Ran in package directory with `said` dependency linked on both ends
 ```js
 symlinked.names()
 // [ 'said' ]
