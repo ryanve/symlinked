@@ -11,7 +11,7 @@ npm install symlinked
 yarn add symlinked
 ```
 
-## `require`
+### `require`
 ```js
 var symlinked = require("symlinked")
 ```
