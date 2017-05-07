@@ -1,5 +1,5 @@
 # symlinked
-Get symlinked packages. Works with [`npm link`](https://docs.npmjs.com/cli/link), [`yarn link`](https://yarnpkg.com/lang/en/docs/cli/link/), or other Node.js symlinks
+Node utility to list symlinks made by [`npm link`](https://docs.npmjs.com/cli/link), [`yarn link`](https://yarnpkg.com/lang/en/docs/cli/link/), or [`fs.link`](https://nodejs.org/api/fs.html)
 
 ## Setup
 ### Install via `npm` or `yarn`
