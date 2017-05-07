@@ -1,4 +1,5 @@
 # symlinked
+Get symlinked packages. Works with [`npm link`](https://docs.npmjs.com/cli/link), [`yarn link`](https://yarnpkg.com/lang/en/docs/cli/link/), or other Node.js symlinks
 
 ## Setup
 ### Install via `npm` or `yarn`
