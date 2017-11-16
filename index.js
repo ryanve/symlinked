@@ -40,10 +40,6 @@ function root(dir) {
   return path.join(dir || ".", node_modules)
 }
 
-function recursiveRoots(dir) {
-  var baseRoot = root(dir)
-}
-
 function roots(dir) {
   return paths(dir).map(root)
 }
