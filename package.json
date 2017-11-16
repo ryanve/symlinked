@@ -3,6 +3,7 @@
   "version": "0.3.0",
   "description": "Node utility to list packages that are npm linked",
   "main": "index.js",
+  "bin": "bin.js",
   "scripts": {
     "demo": "node demo.js",
     "lint": "eslint . --ext .js",

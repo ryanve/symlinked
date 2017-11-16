@@ -1,7 +1,34 @@
 # symlinked
 Node utility to list symlinks made by [`npm link`](https://docs.npmjs.com/cli/link), [`yarn link`](https://yarnpkg.com/lang/en/docs/cli/link/), or [`fs.link`](https://nodejs.org/api/fs.html)
 
-## Setup
+## CLI
+
+### Install via `npm` or `yarn`
+```
+npm install --global symlinked
+```
+
+```
+yarn add global symlinked
+```
+
+### Usage
+
+```
+Usage: symlinked [<path>]
+
+  Finds all linked package names of an npm package.
+
+Options:
+
+  -h, --help     Display this usage info
+  -p, --paths    Get linked package paths
+  -r, --roots    Get linked package roots
+  -l, --links    Get linked package links
+```
+
+## API
+
 ### Install via `npm` or `yarn`
 ```
 npm install symlinked
@@ -16,7 +43,7 @@ yarn add symlinked
 var symlinked = require("symlinked")
 ```
 
-## Methods
+### Methods
 - `symlinked.names(dir: ".")` get array of linked package names
 - `symlinked.paths(dir: ".")` get array of linked package paths
 - `symlinked.roots(dir: ".")` get array of linked package roots
@@ -24,8 +51,8 @@ var symlinked = require("symlinked")
 - `symlinked.is(path)` test if path exists and is linked
 - `symlinked.read(path)` read link
 
-## Examples
-### Ran in package directory with `said` dependency linked on both ends
+### Examples
+#### Ran in package directory with `said` dependency linked on both ends
 ```js
 symlinked.names()
 // [ 'said' ]
