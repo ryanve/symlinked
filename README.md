@@ -12,16 +12,20 @@ Local install as above is best practice if you are using in a shared codebase be
 ## CLI
 
 ```
-Usage: symlinked [<path>]
+Usage: symlinked <command> [<path>]
 
   Finds all linked package names of an npm package.
+
+Commands:
+
+  names    Get linked package names
+  paths    Get linked package paths
+  roots    Get linked package roots
+  links    Get linked package links
 
 Options:
 
   -h, --help     Display this usage info
-  -p, --paths    Get linked package paths
-  -r, --roots    Get linked package roots
-  -l, --links    Get linked package links
 ```
 
 ## API
