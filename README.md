@@ -1,18 +1,15 @@
 # symlinked
 Node utility to list symlinks made by [`npm link`](https://docs.npmjs.com/cli/link), [`yarn link`](https://yarnpkg.com/lang/en/docs/cli/link/), or [`fs.link`](https://nodejs.org/api/fs.html)
 
+## Install
+
+```
+npm install symlinked
+```
+
+Local install as above is best practice if you are using in a shared codebase because then all developers will use the same version. CLI can be used locally via npx or via npm scripts. `npm install` has a `--global` flag you can add if you prefer global use. Yarn can be used via `yarn add` and `yarn global add` respectively if you prefer yarn.
+
 ## CLI
-
-### Install via `npm` or `yarn`
-```
-npm install --global symlinked
-```
-
-```
-yarn add global symlinked
-```
-
-### Usage
 
 ```
 Usage: symlinked [<path>]
@@ -28,15 +25,6 @@ Options:
 ```
 
 ## API
-
-### Install via `npm` or `yarn`
-```
-npm install symlinked
-```
-
-```
-yarn add symlinked
-```
 
 ### `require`
 ```js

@@ -4,28 +4,24 @@ var node_modules = "node_modules"
 
 function Found() {}
 
-function search(dir) {
+function search(dir, scope) {
   dir = dir || "."
   var context = path.resolve(dir)
   if (!fs.existsSync(context)) return []
   var contents = fs.readdirSync(context)
-  var scopedRoots = []
-  var results = contents.filter(function (name) {
-    var isBin = name === ".bin"
-    var isScoped = name.charAt(0) === "@"
-    if (isScoped) scopedRoots.push(path.join(dir, name))
-    return !isScoped && !isBin
-  }).map(function(name) {
+  return contents.reduce(function (accumulated, name) {
+    if (name === ".bin") return accumulated; // .bin directory is never a package
     var relative = path.join(dir, name)
+    var isScoped = name.charAt(0) === "@"
+    if (isScoped) return accumulated.concat(search(relative, name))
     var found = new Found
-    found.name = name
+    found.name = scope ? scope + "/" + name : name
     found.path = path.resolve(relative)
+    if (scope) found.scope = scope
     if (is(relative)) found.link = read(relative)
-    return found
-  })
-  return scopedRoots.reduce(function (_, scopedRoot) {
-    return _.concat(search(scopedRoot))
-  }, results)
+    accumulated.push(found)
+    return accumulated
+  }, [])
 }
 
 function read(p) {
