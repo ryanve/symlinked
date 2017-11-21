@@ -10,7 +10,6 @@ function search(dir, scope) {
   if (!fs.existsSync(context)) return []
   var contents = fs.readdirSync(context)
   return contents.reduce(function (accumulated, name) {
-    if (name === ".bin") return accumulated; // .bin directory is never a package
     var relative = path.join(dir, name)
     var isScoped = name.charAt(0) === "@"
     if (isScoped) return accumulated.concat(search(relative, name))

@@ -16,7 +16,7 @@ var args = process.argv.slice(2).filter(function(arg) {
     return !!arg
 })
 
-var argsOk = args.length >= 1 && args.length <= 2 && Object.keys(symlinked).indexOf(args[0]) !== -1
+var argsOk = args.length >= 1 && args.length <= 2 && symlinked.hasOwnProperty(args[0])
 
 if (help || !argsOk) {
   // If they didn't ask for help, then this is not a "success"
