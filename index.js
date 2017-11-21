@@ -4,19 +4,23 @@ var node_modules = "node_modules"
 
 function Found() {}
 
-function search(dir) {
+function search(dir, scope) {
   dir = dir || "."
   var context = path.resolve(dir)
   if (!fs.existsSync(context)) return []
   var contents = fs.readdirSync(context)
-  return contents.map(function(name) {
+  return contents.reduce(function (accumulated, name) {
     var relative = path.join(dir, name)
+    var isScoped = name.charAt(0) === "@"
+    if (isScoped) return accumulated.concat(search(relative, name))
     var found = new Found
-    found.name = name
+    found.name = scope ? scope + "/" + name : name
     found.path = path.resolve(relative)
+    if (scope) found.scope = scope
     if (is(relative)) found.link = read(relative)
-    return found
-  })
+    accumulated.push(found)
+    return accumulated
+  }, [])
 }
 
 function read(p) {
