@@ -32,7 +32,7 @@ Options:
 
 ### `require`
 ```js
-var symlinked = require("symlinked")
+const symlinked = require("symlinked")
 ```
 
 ### Methods
