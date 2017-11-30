@@ -28,6 +28,30 @@ Options:
   -h, --help     Display this usage info
 ```
 
+### CLI example
+
+<pre>
+<b># Link some packages for example</b>
+npm link @songkick/promise-retry
+npm link eol
+
+<b>$ symlinked names</b>
+@songkick/promise-retry
+eol
+
+<b>$ symlinked paths</b>
+/Users/doe/project/node_modules/@songkick/promise-retry
+/Users/doe/project/node_modules/eol
+
+<b>$ symlinked roots</b>
+/Users/doe/project/node_modules/@songkick/promise-retry/node_modules
+/Users/doe/project/node_modules/eol/node_modules
+
+<b>$ symlinked links</b>
+/usr/local/lib/node_modules/@songkick/promise-retry
+/usr/local/lib/node_modules/eol
+</pre>
+
 ## API
 
 ### `require`
