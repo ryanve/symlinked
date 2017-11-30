@@ -65,7 +65,9 @@ symlinked.links()
 // [ '/Users/said' ]
 ```
 
-### [Webpack `resolve.modules`](https://webpack.js.org/configuration/resolve/#resolve-modules) configuration to resolve dependencies of linked dependencies
+## Webpack
+### [`resolve.modules`](https://webpack.js.org/configuration/resolve/#resolve-modules) configuration to resolve dependencies of linked dependencies
+
 ```js
 module.exports = {
   resolve: {
