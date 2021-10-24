@@ -33,7 +33,7 @@ function read(p) {
 }
 
 function pluck(found, i, list) {
-  var t = list.length -1 === i ? "┗━─" : "┣━─"
+  var t = list.length - 1 === i || (list[i + 1] || {}).level < found.level ? "┗━─" : "┣━─"
   var ts =  found.level > 1 ? "\x1b[2m│   " : "    "
   var pre = found.level > 1 ? "    " : ""
   var l = found.level > 1 ? found.level - 1 : found.level
