@@ -1,6 +1,6 @@
 {
   "name": "symlinked",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Node utility to list packages that are npm linked",
   "main": "index.js",
   "bin": "bin.js",
