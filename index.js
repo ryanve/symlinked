@@ -33,8 +33,11 @@ function read(p) {
 }
 
 function pluck(found, i, list) {
-  var t = list.length -1 === i || list[i+1].level !== found.level ? "└──" : "├──"
-  return " ".repeat(found.level * 4) + "\x1b[2m" + t + "\x1b[0m" + found[this]
+  var t = list.length -1 === i ? "┗━─" : "┣━─"
+  var ts =  found.level > 1 ? "\x1b[2m│   " : "    "
+  var pre = found.level > 1 ? "    " : ""
+  var l = found.level > 1 ? found.level - 1 : found.level
+  return pre + ts.repeat(l ) + "\x1b[2m" + t + "\x1b[0m" + found[this]
 }
 
 function root(dir) {
