@@ -39,22 +39,22 @@ $ npm link deeper
 
 <b>$ symlinked names</b>
     ┣━─@songkick/promise-retry
-    │   ┣━─deeper
+    │   ┗━─deeper
     ┗━─eol
 
 <b>$ symlinked paths</b>
     ┣━─/Users/doe/project/node_modules/@songkick/promise-retry
-    │   ┣━─/Users/doe/project/node_modules/@songkick/promise-retry/node_modules/deeper
+    │   ┗━─/Users/doe/project/node_modules/@songkick/promise-retry/node_modules/deeper
     ┗━─/Users/doe/project/node_modules/eol
 
 <b>$ symlinked roots</b>
     ┣━─/Users/doe/project/node_modules/@songkick/promise-retry/node_modules
-    │   ┣━─/Users/doe/project/node_modules/@songkick/promise-retry/node_modules/deeper/node_modules
+    │   ┗━─/Users/doe/project/node_modules/@songkick/promise-retry/node_modules/deeper/node_modules
     ┗━─/Users/doe/project/node_modules/eol/node_modules
 
 <b>$ symlinked links</b>
     ┣━─/usr/local/lib/node_modules/@songkick/promise-retry
-    │   ┣━─/usr/local/lib/node_modules/@songkick/promise-retry/node_modules/deeper
+    │   ┗━─/usr/local/lib/node_modules/@songkick/promise-retry/node_modules/deeper
     ┗━─/usr/local/lib/node_modules/eol
 </pre>
 
