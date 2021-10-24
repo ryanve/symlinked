@@ -1,7 +1,7 @@
 {
   "name": "symlinked",
   "version": "0.5.1",
-  "description": "Node utility to list packages that are npm linked",
+  "description": "Node utility to list linked packages as a nice tree, recursively.",
   "main": "index.js",
   "bin": "bin.js",
   "scripts": {
