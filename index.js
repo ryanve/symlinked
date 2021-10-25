@@ -4,21 +4,26 @@ var node_modules = "node_modules"
 
 function Found() {}
 
-function search(dir, scope) {
+function search(dir, scope, level) {
   dir = dir || "."
+  level = level || 1
   var context = path.resolve(dir)
   if (!fs.existsSync(context)) return []
   var contents = fs.readdirSync(context)
   return contents.reduce(function (accumulated, name) {
     var relative = path.join(dir, name)
     var isScoped = name.charAt(0) === "@"
-    if (isScoped) return accumulated.concat(search(relative, name))
+    if (isScoped) return accumulated.concat(search(relative, name, level))
     var found = new Found
+    found.level = level
     found.name = scope ? scope + "/" + name : name
     found.path = path.resolve(relative)
     if (scope) found.scope = scope
     if (is(relative)) found.link = read(relative)
     accumulated.push(found)
+    if(is(relative)) {
+      accumulated = accumulated.concat(search(path.join(relative, node_modules), undefined, level + 1))
+    }
     return accumulated
   }, [])
 }
@@ -27,8 +32,12 @@ function read(p) {
   return path.resolve(fs.readlinkSync(path.resolve(p)))
 }
 
-function pluck(found) {
-  return found[this]
+function pluck(found, i, list) {
+  var t = list.length - 1 === i || (list[i + 1] || {}).level < found.level ? "┗━─" : "┣━─"
+  var ts =  found.level > 1 ? "\x1b[2m│   " : "    "
+  var pre = found.level > 1 ? "    " : ""
+  var l = found.level > 1 ? found.level - 1 : found.level
+  return pre + ts.repeat(l ) + "\x1b[2m" + t + "\x1b[0m" + found[this]
 }
 
 function root(dir) {
