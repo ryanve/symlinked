@@ -13,7 +13,7 @@ function search(dir, scope, level) {
   return contents.reduce(function (accumulated, name) {
     var relative = path.join(dir, name)
     var isScoped = name.charAt(0) === "@"
-    if (isScoped) return accumulated.concat(search(relative, name))
+    if (isScoped) return accumulated.concat(search(relative, name, level))
     var found = new Found
     found.level = level
     found.name = scope ? scope + "/" + name : name
